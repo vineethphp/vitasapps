@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VitasApps - Your Trusted Accounting & Business Partner</title>
+    
+    <!-- Font Awesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
+
+    <style>
+        /* Global Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f9f9f9;
+            color: #333;
+            line-height: 1.6;
+            scroll-behavior: smooth; /* Smooth scroll between sections */
+        }
+
+        /* Navigation Bar Styles */
+        nav {
+            background-color: #003366;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            padding: 10px 0;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        nav ul {
+            display: flex;
+            justify-content: center;
+            list-style-type: none;
+            padding: 0;
+        }
+        nav ul li {
+            margin: 0 20px;
+        }
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-size: 1.1rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        nav ul li a:hover {
+            color: #FFD700;
+            transition: color 0.3s ease;
+        }
+
+        /* Header Styles */
+        header {
+            background: linear-gradient(90deg, #003366, #005f99), url('https://source.unsplash.com/1600x900/?business,finance') center/cover no-repeat;
+            color: white;
+            text-align: center;
+            padding: 60px 20px;
+            animation: fadeIn 1s ease-in;
+            position: relative;
+        }
+        header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            z-index: 1;
+        }
+        header h1 {
+            font-size: 3rem;
+            letter-spacing: 2px;
+            margin-bottom: 10px;
+            position: relative;
+            z-index: 2;
+        }
+        header h2 {
+            font-size: 1.5rem;
+            font-weight: 300;
+            position: relative;
+            z-index: 2;
+        }
+
+        /* Section Styles */
+        section {
+            padding: 60px 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        #about-us h2, #services h2, #contact-us h2 {
+            text-align: center;
+            font-size: 2.5rem;
+            color: #003366;
+            margin-bottom: 30px;
+            text-transform: uppercase;
+        }
+        #about-us p {
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto;
+            font-size: 1.2rem;
+        }
+
+        /* Services Section */
+        #services ul {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            justify-content: center;
+            list-style: none;
+            padding: 0;
+            margin-top: 30px;
+        }
+        #services li {
+            background-color: white;
+            padding: 20px;
+            border-left: 5px solid #FFD700;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            flex: 1 1 calc(33.333% - 40px);
+            min-width: 250px;
+            text-align: center;
+            opacity: 0;
+            animation: slideUp 0.5s forwards;
+        }
+        #services li:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+        }
+        #services li strong {
+            display: block;
+            font-size: 1.2rem;
+            margin-bottom: 10px;
+            color: #005f99;
+        }
+        #services li i {
+            font-size: 2rem;
+            color: #005f99;
+            margin-bottom: 10px;
+        }
+
+        /* Contact Us Section */
+        #contact-us {
+            background-color: #003366;
+            color: white;
+            text-align: center;
+            padding: 60px 20px;
+        }
+        #contact-us p {
+            font-size: 1.2rem;
+            margin-bottom: 20px;
+        }
+        #contact-us a {
+            color: #FFD700;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 1.2rem;
+        }
+        #contact-us a:hover {
+            text-decoration: underline;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #003366;
+            color: white;
+            text-align: center;
+            padding: 20px;
+        }
+        footer .social-media {
+            margin-bottom: 10px;
+        }
+        footer .social-media a {
+            color: white;
+            margin: 0 10px;
+            font-size: 1.5rem;
+            text-decoration: none;
+            transition: transform 0.3s, color 0.3s;
+        }
+        footer .social-media a:hover {
+            transform: scale(1.2);
+            color: #FFD700;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            #services ul {
+                flex-direction: column;
+            }
+            nav ul {
+                flex-direction: column;
+            }
+            nav ul li {
+                margin: 10px 0;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<nav>
+    <ul>
+        <li><a href="#about-us">About Us</a></li>
+        <li><a href="#services">Services</a></li>
+        <li><a href="#contact-us">Contact Us</a></li>
+    </ul>
+</nav>
+
+<header>
+    <h1>VitasApps</h1>
+    <h2>Your Partner in Accounting & Outsourcing Solutions</h2>
+</header>
+
+<section id="about-us">
+    <h2>About Us</h2>
+    <p>At VitasApps, we specialize in providing high-quality accounting and business outsourcing services to small and medium enterprises. Our services are designed to help businesses operate more efficiently, stay compliant with financial regulations, and grow with confidence.</p>
+</section>
+
+<section id="services">
+    <h2>Our Services</h2>
+    <ul>
+        <li data-aos="fade-up"><i class="fas fa-book"></i><strong>Accounting and Bookkeeping:</strong> Complete bookkeeping solutions, including payroll, invoicing, and financial reporting.</li>
+        <li data-aos="fade-up"><i class="fas fa-file-invoice-dollar"></i><strong>Tax Compliance:</strong> Manage tax preparation, filing, and compliance with local regulations.</li>
+        <li data-aos="fade-up"><i class="fas fa-database"></i><strong>Master Data Clean Up:</strong> Comprehensive data management, ensuring accuracy and system optimization.</li>
+        <li data-aos="fade-up"><i class="fas fa-globe"></i><strong>ESG Reporting:</strong> Supporting your sustainability targets as compliant with EU regulations.</li>
+        <li data-aos="fade-up"><i class="fas fa-keyboard"></i><strong>Data Entry & Document Management:</strong> Fast, accurate data entry and secure document handling.</li>
+        <li data-aos="fade-up"><i class="fas fa-chart-line"></i><strong>Financial Reporting:</strong> Detailed reports to guide informed financial decision-making.</li>
+        <li data-aos="fade-up"><i class="fas fa-user-tie"></i><strong>Outsourced CFO Services:</strong> Professional financial guidance without the full-time cost.</li>
+        <li data-aos="fade-up"><i class="fas fa-share-alt"></i><strong>Social Media & Content Management:</strong> Building your brand and managing customer engagement.</li>
+        <li data-aos="fade-up"><i class="fas fa-headset"></i><strong>Administrative Support:</strong> Handling routine tasks, freeing you to focus on core business activities.</li>
+    </ul>
+</section>
+
+<section id="contact-us">
+    <h2>Contact Us</h2>
+    <p>For more information about our services or to discuss your business needs, feel free to reach out via email.</p>
+    <p>Email: <a href="mailto:info@vitasapps.com">info@vitasapps.com</a></p>
+</section>
+
+<footer>
+    <div class="social-media">
+        <a href="https://www.facebook.com/vitasapps" target="_blank" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+        <a href="https://www.twitter.com/vitasapps" target="_blank" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+        <a href="https://www.instagram.com/vitasapps" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+        <a href="https://www.linkedin.com/company/vitasapps" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+        <a href="https://www.youtube.com/c/vitasapps" target="_blank" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+    </div>
+    <p>&copy; 2024 VitasApps. All Rights Reserved.</p>
+</footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+<script>
+    AOS.init();
+</script>
+</body>
+</html>

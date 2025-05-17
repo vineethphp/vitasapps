@@ -1,0 +1,457 @@
+<!DOCTYPE html>
+<html lang="sv">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VitasApps - Din Partner för Redovisning & Finansiell Operationssupport</title>
+    
+    <!-- Font Awesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+    <style>
+        /* Global Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f9f9f9;
+            color: #333;
+            line-height: 1.6;
+            scroll-behavior: smooth; /* Smooth scroll between sections */
+        }
+
+        /* Navigation Bar Styles */
+        nav {
+            background-color: #003366;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            padding: 10px 0;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        nav ul {
+            display: flex;
+            justify-content: center;
+            list-style-type: none;
+            padding: 0;
+        }
+        nav ul li {
+            margin: 0 20px;
+        }
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-size: 1.1rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        nav ul li a:hover {
+            color: #FFD700;
+            transition: color 0.3s ease;
+        }
+
+        /* Header Styles */
+        header {
+            background: linear-gradient(90deg, #003366, #005f99);
+            color: white;
+            text-align: center;
+            padding: 60px 20px;
+            animation: fadeIn 1s ease-in;
+        }
+        header h1 {
+            font-size: 3rem;
+            letter-spacing: 2px;
+            margin-bottom: 10px;
+        }
+        header h2 {
+            font-size: 1.5rem;
+            font-weight: 300;
+        }
+
+        /* Section Styles */
+        section {
+            padding: 60px 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        #about-us h2, #services h2, #contact-us h2 {
+            text-align: center;
+            font-size: 2.5rem;
+            color: #003366;
+            margin-bottom: 30px;
+            text-transform: uppercase;
+        }
+        #about-us p {
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto;
+            font-size: 1.2rem;
+        }
+
+        /* Tjänster Section */
+        #services ul {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            justify-content: center;
+            list-style: none;
+            padding: 0;
+            margin-top: 30px;
+        }
+        #services li {
+            background-color: white;
+            padding: 20px;
+            border-left: 5px solid #FFD700;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            flex: 1 1 calc(33.333% - 40px);
+            min-width: 250px;
+            text-align: center;
+            opacity: 0;
+            animation: slideUp 0.5s forwards;
+        }
+        /* Staggered Animation Delay */
+        #services li:nth-child(1) { animation-delay: 0.2s; }
+        #services li:nth-child(2) { animation-delay: 0.4s; }
+        #services li:nth-child(3) { animation-delay: 0.6s; }
+        #services li:nth-child(4) { animation-delay: 0.8s; }
+        #services li:nth-child(5) { animation-delay: 1s; }
+        #services li:nth-child(6) { animation-delay: 1.2s; }
+        #services li:nth-child(7) { animation-delay: 1.4s; }
+        #services li:nth-child(8) { animation-delay: 1.6s; }
+        #services li:nth-child(9) { animation-delay: 1.8s; }
+        #services li:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+        }
+        #services li strong {
+            display: block;
+            font-size: 1.2rem;
+            margin-bottom: 10px;
+            color: #005f99;
+        }
+        /* Service Icons */
+        #services li i {
+            font-size: 2rem;
+            color: #005f99;
+            margin-bottom: 10px;
+        }
+
+        /* Kontakta Oss Section */
+        #contact-us {
+            background-color: #003366;
+            color: white;
+            text-align: center;
+            padding: 60px 20px;
+        }
+        #contact-us p {
+            font-size: 1.2rem;
+            margin-bottom: 20px;
+        }
+        #contact-us a {
+            color: #FFD700;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 1.2rem;
+        }
+        #contact-us a:hover {
+            text-decoration: underline;
+        }
+
+        /* "Back to Top" Button */
+        .back-to-top {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: #FFD700;
+            color: #003366;
+            font-size: 1.5rem;
+            padding: 10px;
+            border-radius: 50%;
+            text-align: center;
+            display: none;
+            cursor: pointer;
+            z-index: 1000;
+        }
+        .back-to-top:hover {
+            background-color: #ffcc33;
+            transition: background-color 0.3s ease;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #222;
+            color: #aaa;
+            text-align: center;
+            padding: 20px 0;
+        }
+        footer p {
+            margin: 0;
+        }
+
+        /* Keyframes for animations */
+        @keyframes fadeIn {
+            0% { opacity: 0; }
+            100% { opacity: 1; }
+        }
+
+        @keyframes slideUp {
+            0% { 
+                transform: translateY(50px); 
+                opacity: 0;
+            }
+            100% {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 2.5rem;
+            }
+            #services ul {
+                flex-direction: column;
+            }
+            nav ul {
+                flex-direction: column;
+            }
+            nav ul li {
+                margin: 10px 0;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<!-- Google Translate Widget -->
+<div id="google_translate_element" class="floating-translate-widget"></div>
+
+<script type="text/javascript">
+    function googleTranslateElementInit() {
+        new google.translate.TranslateElement(
+            {
+                pageLanguage: 'en',
+                includedLanguages: 'en,sv',
+                layout: google.translate.TranslateElement.InlineLayout.SIMPLE,
+                autoDisplay: false
+            },
+            'google_translate_element'
+        );
+    }
+
+    // Remove widget on mobile
+    if (window.innerWidth < 768) {
+        const widget = document.querySelector('.floating-translate-widget');
+        if (widget) widget.style.display = 'none';
+    }
+</script>
+<script src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+
+<!-- Widget Styling -->
+<style>
+    .floating-translate-widget {
+        position: fixed;
+        bottom: 20px;
+        left: 10px;
+        background-color: #003366;
+        padding: 8px;
+        border-radius: 5px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        z-index: 1000;
+        color: #fff;
+        max-width: 90%;
+        overflow: hidden;
+        text-align: center;
+    }
+
+    .floating-translate-widget select {
+        width: 100%;
+        font-size: 0.9rem;
+        padding: 5px;
+        border: none;
+        border-radius: 5px;
+        background-color: #FFD700;
+        color: #003366;
+        cursor: pointer;
+    }
+
+    @media (max-width: 768px) {
+        .floating-translate-widget {
+            display: none; /* Hide on smaller screens */
+        }
+    }
+</style>
+
+    
+    <nav>
+        <ul>
+            <li><a href="#about-us">Om Oss</a></li>
+            <li><a href="#services">Tjänster</a></li>
+            <li><a href="#contact-us">Kontakta Oss</a></li>
+        </ul>
+    </nav>
+
+    <!-- Header -->
+    <header>
+        <h1>VitasApps</h1>
+        <h2>Framtiden är din – Smarta lösningar för redovisning och finansiella processer</h2>
+    </header>
+
+    <!-- Om Oss Section -->
+    <section id="about-us">
+        <h2>Om Oss</h2>
+        <p>På VitasApps specialiserar vi oss på att att stödja små och medelstora företag med dagliga bokföringsrutiner, ekonomiska avstämningar och digital hantering av affärsprocesser. Vi fokuserar på praktisk redovisning, löpande bokslut och smarta arbetssätt för effektivare ekonomi.</p>
+    </section>
+
+    <!-- Tjänster Section -->
+    <section id="services">
+        <h2>Our Tjänster</h2>
+        <ul>
+            <li><i class="fas fa-book"></i><strong>Accounting and Bookkeeping:</strong> Complete bookkeeping solutions, including payroll, invoicing, and financial reporting.</li>
+            <li><i class="fas fa-file-invoice-dollar"></i><strong>Tax Compliance:</strong> Manage tax preparation, filing, and compliance with local regulations.</li>
+            <li><i class="fas fa-database"></i><strong>Master Data Clean Up:</strong> Comprehensive data management, ensuring accuracy and system optimization.</li>
+            <li><i class="fas fa-globe"></i><strong>ESG Reporting</strong> Supporting your sustaibility targets as compliant with EU regulations</li>
+            <li><i class="fas fa-keyboard"></i><strong>Data Entry & Document Management:</strong> Fast, accurate data entry and secure document handling.</li>
+            <li><i class="fas fa-chart-line"></i><strong>Financial Reporting:</strong> Detailed reports to guide informed financial decision-making.</li>
+            <li><i class="fas fa-user-tie"></i><strong>Outsourced CFO Tjänster:</strong> Professional financial guidance without the full-time cost.</li>
+            <li><i class="fas fa-share-alt"></i><strong>Social Media & Content Management:</strong> Building your brand and managing customer engagement.</li>
+            <li><i class="fas fa-headset"></i><strong>Administrative Support:</strong> Handling routine tasks, freeing you to focus on core business activities.</li>
+        </ul>
+    </section>
+
+    <!-- Kontakta Oss Section -->
+    <section id="contact-us">
+        <h2>Kontakta Oss</h2>
+        <p>För mer information om våra tjänster eller för att diskutera dina affärsbehov, kontakta oss gärna via e-post.</p>
+        <p>Email: <a href="mailto:info@vitasapps.com">info@vitasapps.com</a></p>
+    </section>
+
+    <!-- "Back to Top" Button -->
+    <div class="back-to-top" id="back-to-top">
+        <i class="fas fa-arrow-up"></i>
+    </div>
+
+    <!-- JotForm Integration -->
+    <script src="https://form.jotform.com/static/feedback2.js"></script>
+    <script>
+        var componentID = new JotformFeedback({
+            type: 2,
+            width: 450,
+            height: 700,
+            fontColor: "#FFFFFF",
+            background: "#4a90e2",
+            isCardForm: false,
+            formId: "242456455915362",
+            buttonText: "Contact us",
+            buttonSide: "bottom",
+            buttonAlign: "right",
+            base: "https://form.jotform.com/",
+        }).componentID;
+    </script>
+    <script src="https://cdn.jotfor.ms/s/umd/latest/for-form-embed-handler.js"></script>
+    <script>
+        window.jotformEmbedHandler("iframe[id='" + componentID + "_iframe']", "https://form.jotform.com/");
+    </script>
+
+ 
+
+<!-- Footer Section -->
+<footer>
+    <div class="footer-content">
+        <div class="social-media">
+            <a href="https://www.facebook.com/vitasapps" target="_blank" aria-label="Facebook">
+                <i class="fab fa-facebook-f"></i>
+            </a>
+            <a href="https://www.twitter.com/vitasapps" target="_blank" aria-label="Twitter">
+                <i class="fab fa-twitter"></i>
+            </a>
+            <a href="https://www.instagram.com/vitasapps" target="_blank" aria-label="Instagram">
+                <i class="fab fa-instagram"></i>
+            </a>
+            <a href="https://www.linkedin.com/company/vitasapps" target="_blank" aria-label="LinkedIn">
+                <i class="fab fa-linkedin-in"></i>
+            </a>
+            <a href="https://www.youtube.com/c/vitasapps" target="_blank" aria-label="YouTube">
+                <i class="fab fa-youtube"></i>
+            </a>
+        </div>
+        <p>&copy; 2024 VitasApps. Alla rättigheter förbehållna.</p>
+    </div>
+</footer>
+
+<!-- Include Font Awesome -->
+<link
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
+    rel="stylesheet"
+/>
+
+<!-- Footer Styling -->
+<style>
+    footer {
+        background-color: #003366;
+        color: #fff;
+        text-align: center;
+        padding: 20px;
+    }
+
+    .footer-content {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 10px;
+    }
+
+    .social-media {
+        margin-bottom: 10px;
+    }
+
+    .social-media a {
+        color: white;
+        margin: 0 10px;
+        font-size: 1.5rem;
+        text-decoration: none;
+        transition: transform 0.3s, color 0.3s;
+    }
+
+    .social-media a:hover {
+        transform: scale(1.2);
+        color: #FFD700; /* Add a golden color on hover */
+    }
+
+    @media (max-width: 768px) {
+        .social-media a {
+            font-size: 1.2rem; /* Adjust icon size for smaller screens */
+            margin: 0 8px;
+        }
+    }
+</style>
+
+
+    <!-- JavaScript for "Back to Top" Button -->
+    <script>
+        // Show the "Back to Top" button when scrolling down
+        window.onscroll = function() {
+            var backToTopButton = document.getElementById('back-to-top');
+            if (document.body.scrollTop > 200 || document.documentElement.scrollTop > 200) {
+                backToTopButton.style.display = 'block';
+            } else {
+                backToTopButton.style.display = 'none';
+            }
+        };
+
+        // Smooth scroll back to top
+        document.getElementById('back-to-top').addEventListener('click', function() {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+    </script>
+
+</body>
+</html>
